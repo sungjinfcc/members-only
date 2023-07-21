@@ -4,11 +4,10 @@ block content
   if currentUser
     h1 WELCOME #{currentUser.username}
   else
-    h1 Please log in
   if currentUser && currentUser.membership
     form(action="/message", method="GET")
-      button(type="submit") Create message
+      button.create-message(type="submit") Create message
   else if currentUser && !currentUser.membership
-    p Join now to create messages! #{currentUser}
+      p.join-message Join now to create messages!
   each message in messages
     include message_card.pug

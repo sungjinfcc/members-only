@@ -6,8 +6,8 @@ block content
   form(method='POST' action='')
     div.form-group
       label(for='message') Message:
-      input#message.form-control(type='text', placeholder='message' name='message' value=(message===undefined ? '' : message))
-    button(type='submit') Submit
+      textarea#message.form-control(type='text', rows="10" placeholder='message' name='message' value=(message===undefined ? '' : message))
+      button(type='submit') Submit
 
   if errors
    ul

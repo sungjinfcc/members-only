@@ -5,7 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     div.navbar
-      a(href='/') Home
+      a(href='/')
+        h1 Home
       div.buttons
         if currentUser && !currentUser.membership
           form(action="/join-club", method="GET")

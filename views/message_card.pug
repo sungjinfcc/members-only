@@ -1,12 +1,16 @@
 .card
-  if currentUser
-    .username
-      h3 !{message.username}
   .message
     p !{message.message}
+    
   if currentUser
+    .username
+      p by !{message.username}
     .timestamp
       p !{message.timestamp}
+  else 
+    .join-alert 
+      p Join now to see who wrote this and when!
+
   if currentUser && currentUser.admin
     form(action=`/message/${message._id}/delete`, method="POST")
       button(type="submit") Delete
