@@ -1,7 +1,12 @@
 .card
-  .username
-    h3 !{message.username}
+  if currentUser
+    .username
+      h3 !{message.username}
   .message
     p !{message.message}
-  .timestamp
-    p !{message.timestamp}
+  if currentUser
+    .timestamp
+      p !{message.timestamp}
+  if currentUser && currentUser.admin
+    form(action=`/message/${message._id}/delete`, method="POST")
+      button(type="submit") Delete

@@ -34,3 +34,11 @@ exports.message_put = [
     }
   }),
 ];
+exports.message_delete = asyncHandler(async (req, res, next) => {
+  const message = await Message.findById(req.params.id).exec();
+  if (message !== null) {
+    await Message.findByIdAndRemove(req.params.id);
+  }
+
+  res.redirect("/");
+});

@@ -18,4 +18,6 @@ router.post("/logout", user_controller.logout);
 router.get("/message", message_controller.message_get);
 router.post("/message", message_controller.message_put);
 
+router.post("/message/:id/delete", message_controller.message_delete);
+
 module.exports = router;
