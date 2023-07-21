@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  if currentUser
+    h1 WELCOME #{currentUser.username}
+  else
+    h1 Please log in
+  if currentUser && currentUser.membership
+    form(action="/message", method="GET")
+      button(type="submit") Create message
+  else if currentUser && !currentUser.membership
+    p Join now to create messages! #{currentUser}
+  each message in messages
+    include message_card.pug

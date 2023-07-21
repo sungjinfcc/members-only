@@ -4,4 +4,19 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    div.navbar
+      a(href='/') Home
+      div.buttons
+        if currentUser && !currentUser.membership
+          form(action="/join-club", method="GET")
+            button(type="submit") Join Club
+        if !currentUser
+          form(action="/login", method="GET")
+            button(type="submit") Login
+          form(action="/signup", method="GET")
+            button(type="submit") SignUp
+        else
+          form(action="/logout", method="POST")
+            button(type="submit") Logout
+    div.content
+      block content

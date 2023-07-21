@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Enter secret code to join
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='code') Code:
+      input#code.form-control(type='text', placeholder='code' name='code' value=(code===undefined ? '' : code))
+    button(type='submit') Submit
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg
